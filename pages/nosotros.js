@@ -30,7 +30,7 @@ export default function Nosotros({nosotros}) {
 }
 
 export async function getServerSideProps() {
-  const respuesta = await fetch(`${process.env.API_URL}/nosotro?populate=imagen`)
+  const respuesta = await fetch(`${process.env.API_URL}/nosotross?populate=imagen`)
   const {data: nosotros} = await respuesta.json() 
   return {
      props: {

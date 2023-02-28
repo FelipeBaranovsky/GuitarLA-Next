@@ -10,7 +10,7 @@ export default function Producto({guitarra, agregarCarrito}) {
 
     const router = useRouter()
     const [cantidad,setCantidad] = useState(0)
-    const { titulo, descripcion, imagen, precio } = guitarra[0].attributes
+    const { nombre, descripcion, imagen, precio } = guitarra[0].attributes
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -21,7 +21,7 @@ export default function Producto({guitarra, agregarCarrito}) {
         const guitarraSeleccionada = {
             id: guitarra[0].id,
             imagen: imagen.data.attributes.url,
-            titulo,
+            nombre,
             precio,
             cantidad
         }
@@ -30,13 +30,13 @@ export default function Producto({guitarra, agregarCarrito}) {
 
     return (
         <Layout
-            title={`Guitarra ${titulo}`}
+            title={`Guitarra ${nombre}`}
         >
             <div className={styles.guitarra}>
-                <Image src={imagen.data.attributes.url} width={600} height={400} alt={`Imagen guitarra ${titulo}`} />
+                <Image src={imagen.data.attributes.url} width={600} height={400} alt={`Imagen guitarra ${nombre}`} />
 
                 <div className={styles.contenido}>
-                    <h3>{titulo}</h3>
+                    <h3>{nombre}</h3>
                     <p className={styles.descripcion}>{descripcion}</p>
                     <p className={styles.precio}>${precio}</p>
                     <form className={styles.formulario} onSubmit={handleSubmit}>
